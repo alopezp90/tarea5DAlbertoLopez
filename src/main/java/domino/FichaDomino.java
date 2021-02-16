@@ -18,8 +18,17 @@ public class FichaDomino {
 
     //Constructor parametrizado
     public FichaDomino(int a, int b) {
-        this.valorA = valorValido(a);
-        this.valorB = valorValido(b);
+//        this.valorA = valorValido(a);
+//        this.valorB = valorValido(b);
+        int validoA = valorValido(a);
+        int validoB = valorValido(b);
+        if (validoA > validoB) {
+            this.valorA = validoA;
+            this.valorB = validoB;
+        } else {
+            this.valorA = validoB;
+            this.valorB = validoA;
+        }
     }
 
     //metodo para comprobar si a y b son validos y sustituir si no lo son
