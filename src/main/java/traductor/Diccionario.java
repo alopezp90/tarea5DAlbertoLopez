@@ -19,15 +19,9 @@ import java.nio.file.Path;
 public class Diccionario {
 
     private SortedMap<String, String> diccionario;
-    private ArrayList<String> listado;
 
     public Diccionario() {
         this.diccionario = new TreeMap<>();
-        this.listado = new ArrayList<>();
-    }
-
-    public ArrayList<String> getListado() {
-        return listado;
     }
 
     public void guardarEntrada(String palabraIngles, String palabraEspanol) {
@@ -46,23 +40,18 @@ public class Diccionario {
         return this.diccionario.get(palabraIngles);
     }
 
-    public void addLista(String palabraIngles) {
-        listado.add(palabraIngles);
+    public ArrayList<String> listadoKeys() {
+        return new ArrayList<String>(this.diccionario.keySet());
     }
 
-    public ArrayList<String> traducir() {
-        ArrayList<String> traduccion = new ArrayList<>();
-        for (String palabraIngles : listado) {
-            traduccion.add(traducir(palabraIngles));
-        }
-        return traduccion;
+    public ArrayList<String> listadoValues() {
+        return new ArrayList<String>(this.diccionario.values());
     }
 
     //HASTA AQUI EL EJERCICIO DE CLASE. LO QUE SIGUE ES UNA MEJORA, INTRODUCIENDO
     //COMO DICCIONARIO UN LISTADO DE LAS 1000 PALABRAS MAS USADAS EN INGLES
     public Diccionario(String ruta) {
         this.diccionario = new TreeMap<>();
-        this.listado = new ArrayList<>();
         
         Charset charset = Charset.forName("UTF-8");
         Path path = FileSystems.getDefault().getPath(ruta);

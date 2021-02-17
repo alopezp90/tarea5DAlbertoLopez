@@ -32,22 +32,14 @@ public class Prueba {
         //modifica una traduccion
         diccionario.modificarEntrada("small", "pequeño");
 
-        //crea una lista de palabras a traducir
-        diccionario.addLista("have");
-        diccionario.addLista("small");
-        diccionario.addLista("old");
-        diccionario.addLista("tell");
-        diccionario.addLista("give");
-        diccionario.addLista("dog");
-        diccionario.addLista("like");
-        diccionario.addLista("house");
-        diccionario.addLista("mean");
-
-        //traduce la lista
-        System.out.println("--------------------");
-        for (String palabraTraducida : diccionario.traducir()) {
-            System.out.println(palabraTraducida);
+        //imprime listado de Keys
+        for (String key : diccionario.listadoKeys()) {
+            System.out.println(key);
         }
 
+        //imprime listado de Values
+        for (String value : diccionario.listadoValues()) {
+            System.out.println(value);
+        }
     }
 }
